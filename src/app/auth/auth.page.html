@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ !!isLogin ? 'Login' : 'Signup'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <ion-grid>
+          <ion-row>
+            <ion-col size-sm="6" offset-sm="3">
+                <ion-list>
+                    <ion-item>
+                      <ion-label position="floating">E-Mail</ion-label>
+                      <ion-input type="email" ngModel name="email" #emailCtrl="ngModel" required email></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="!!emailCtrl.touched && !emailCtrl.valid" lines="none">
+                      <ion-label>Please enter a valid email address</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label position="floating">Password</ion-label>
+                      <ion-input type="password" ngModel name="password" #passwordCtrl="ngModel" required password minlength="6"></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="!!passwordCtrl.touched && !passwordCtrl.valid" lines="none">
+                      <ion-label>Password should be atleast of 6 Characters</ion-label>
+                    </ion-item>
+                  </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="6" offset-sm="3">
+                
+                <ion-button 
+                  type="submit"
+                  color="primary" 
+                  expand="block" 
+                  [disabled]="!f.valid"
+                >
+                {{ !!isLogin ? 'Login' : 'Signup' }}
+                </ion-button>
+                <ion-button 
+                  color="primary" 
+                  fill=clear 
+                  expand="block"
+                  (click)="onSwitchAuthMode()">
+                  Switch to {{ !!isLogin ? 'Signup' : 'Login'}}
+                </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </form>
+</ion-content>

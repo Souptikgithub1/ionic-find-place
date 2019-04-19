@@ -1,0 +1,6 @@
+{
+  "appId": "com.souptik.awesomeplaces",
+  "appName": "ionic-find-place",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

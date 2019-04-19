@@ -1,0 +1,7 @@
+{
+  "name": "ionic-find-place",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

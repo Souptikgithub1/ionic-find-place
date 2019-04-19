@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">{{ closeButtonText }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header *ngIf="!!searchable">
+    <ion-toolbar>
+      <ion-searchbar
+        id="placeSearchInput"
+        #placeSearchInput 
+        name="search" 
+        [(ngModel)]="search"
+        
+        autocomplete="on" ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  <div class="map" #map></div>
+</ion-content>
